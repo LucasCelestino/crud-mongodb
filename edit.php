@@ -9,37 +9,32 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>CRUD - Inicio</title>
+    <title>CRUD - Editar Usuário</title>
 </head>
 
 <body class="bg-light">
     <div class="container py-5">
-        <a href="add.php" class="btn btn-success mb-2">Adicionar</a>
-        <table class="table table-bordered">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Data de Nascimento</th>
-                    <th scope="col">Imagem</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>##</td>
-                    <td>
-                        <a href="edit.php" class="btn btn-primary">Editar</a>
-                        <a href="delete.php" class="btn btn-danger">Excluir</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <h2 class="text-dark mb-4">Editar usuário</h2>
+        <form enctype="multipart/form-data" method="POST">
+            <div class="form-group">
+                <label for="name" class="text-dark">Nome</label>
+                <input type="text" class="form-control" id="name" placeholder="Digite o nome do usuário">
+            </div>
+            <div class="form-group">
+                <label for="email" class="text-dark">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Digite o email do usuário">
+            </div>
+            <div class="form-group">
+                <label for="dt_birth" class="text-dark">Data de Nascimento</label>
+                <input type="date" class="form-control" id="dt_birth">
+            </div>
+            <div class="form-group">
+                <label for="email" class="text-dark">Imagem</label>
+                <input type="file" class="form-control" id="email" placeholder="Digite o email do usuário">
+            </div>
+            <button type="submit" class="btn btn-success mr-2">Editar</button>
+            <a href="index.php  " class="text-dark">Voltar</a>
+        </form>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
