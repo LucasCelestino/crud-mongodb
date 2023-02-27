@@ -15,22 +15,34 @@
 <body class="bg-light">
     <div class="container py-5">
         <h2 class="text-dark mb-4">Adicionar novo usuário</h2>
-        <form enctype="multipart/form-data" method="POST">
+        <?php if (isset($_GET['empty_field'])) : ?>
+            <p class="text-danger">Preencha todos os campos antes de continuar.</p>
+        <?php endif; ?>
+        <?php if (isset($_GET['error_image'])) : ?>
+            <p class="text-danger">Formato de imagem inválido.</p>
+        <?php endif; ?>
+        <?php if (isset($_GET['upload_error'])) : ?>
+            <p class="text-danger">Ocorreu um erro ao inserir a imagem, tente novamente.</p>
+        <?php endif; ?>
+        <?php if (isset($_GET['success'])) : ?>
+            <p class="text-success">Usuário inserido com sucesso!</p>
+        <?php endif; ?>
+        <form enctype="multipart/form-data" method="POST" action="database/insert.php">
             <div class="form-group">
                 <label for="name" class="text-dark">Nome</label>
-                <input type="text" class="form-control" id="name" placeholder="Digite o nome do usuário">
+                <input type="text" class="form-control" name="name" id="name" placeholder="Digite o nome do usuário">
             </div>
             <div class="form-group">
                 <label for="email" class="text-dark">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Digite o email do usuário">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Digite o email do usuário">
             </div>
             <div class="form-group">
                 <label for="dt_birth" class="text-dark">Data de Nascimento</label>
-                <input type="date" class="form-control" id="dt_birth">
+                <input type="date" class="form-control" name="dt_birth" id="dt_birth">
             </div>
             <div class="form-group">
                 <label for="email" class="text-dark">Imagem</label>
-                <input type="file" class="form-control" id="email" placeholder="Digite o email do usuário">
+                <input type="file" class="form-control" name="image" id="email" placeholder="Digite o email do usuário">
             </div>
             <button type="submit" class="btn btn-success mr-2">Cadastrar</button>
             <a href="index.php  " class="text-dark">Voltar</a>
