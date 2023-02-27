@@ -5,7 +5,7 @@ require("../helpers/helpers.php");
 
 $usersCollection = getConnection()->crud->users;
 
-validateWithFile("image");
+validateWithFile("image", "http://localhost/crud-mongodb/add.php");
 
 $extension = explode("/", $_FILES["image"]["type"])[1];
 $image = md5($_FILES["image"]["name"] . date("Y-m-d H:i:s")) . "." . $extension;
