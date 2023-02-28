@@ -22,6 +22,9 @@ require("database/select.php");
         <?php if (isset($_GET['update_success'])) : ?>
             <p class="text-success">Usuário atualizado com sucesso!</p>
         <?php endif; ?>
+        <?php if (isset($_GET['remove_success'])) : ?>
+            <p class="text-success">Usuário removido com sucesso!</p>
+        <?php endif; ?>
         <table class="table table-bordered">
             <thead class="thead-dark">
                 <tr>
@@ -43,7 +46,7 @@ require("database/select.php");
                         <td><img src="images/<?= $user->image_url ?>" class="d-block m-auto" width="50" height="50"></td>
                         <td>
                             <a href="edit.php?id=<?= $user->_id ?>" class="btn btn-primary">Editar</a>
-                            <a href="delete.php" class="btn btn-danger">Excluir</a>
+                            <a href="database/delete.php?id=<?= $user->_id ?>" class="btn btn-danger">Excluir</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
