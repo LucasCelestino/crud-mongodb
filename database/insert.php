@@ -16,8 +16,8 @@ if (!move_uploaded_file($_FILES["image"]["tmp_name"], '../images/' . $image)) {
 }
 
 $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
-$email = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
-$dt_birth = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
+$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
+$dt_birth = filter_input(INPUT_POST, 'dt_birth', FILTER_SANITIZE_SPECIAL_CHARS);
 
 
 $insertedUser = $usersCollection->insertOne([

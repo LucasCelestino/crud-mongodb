@@ -1,3 +1,4 @@
+<?php require("database/select.php"); ?>
 <!doctype html>
 <html lang="pt-BR">
 
@@ -15,23 +16,24 @@
 <body class="bg-light">
     <div class="container py-5">
         <h2 class="text-dark mb-4">Editar usuário</h2>
-        <form enctype="multipart/form-data" method="POST">
+        <form enctype="multipart/form-data" method="POST" action="database/update.php">
             <div class="form-group">
                 <label for="name" class="text-dark">Nome</label>
-                <input type="text" class="form-control" id="name" placeholder="Digite o nome do usuário">
+                <input type="text" class="form-control" value="<?= $user->name ?>" name="name" placeholder="Digite o nome do usuário">
             </div>
             <div class="form-group">
                 <label for="email" class="text-dark">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Digite o email do usuário">
+                <input type="email" class="form-control" value="<?= $user->email ?>" name="email" placeholder="Digite o email do usuário">
             </div>
             <div class="form-group">
                 <label for="dt_birth" class="text-dark">Data de Nascimento</label>
-                <input type="date" class="form-control" id="dt_birth">
+                <input type="date" class="form-control" value="<?= $user->dt_birth ?>" name="dt_birth">
             </div>
             <div class="form-group">
                 <label for="email" class="text-dark">Imagem</label>
-                <input type="file" class="form-control" id="email" placeholder="Digite o email do usuário">
+                <input type="file" class="form-control" name="image" id="email" placeholder="Digite o email do usuário">
             </div>
+            <input type="hidden" name="id" value="<?= $user->_id ?>">
             <button type="submit" class="btn btn-success mr-2">Editar</button>
             <a href="index.php  " class="text-dark">Voltar</a>
         </form>

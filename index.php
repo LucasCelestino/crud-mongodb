@@ -1,3 +1,7 @@
+<?php
+require("database/select.php");
+?>
+
 <!doctype html>
 <html lang="pt-BR">
 
@@ -15,10 +19,12 @@
 <body class="bg-light">
     <div class="container py-5">
         <a href="add.php" class="btn btn-success mb-2">Adicionar</a>
+        <?php if (isset($_GET['update_success'])) : ?>
+            <p class="text-success">Usuário atualizado com sucesso!</p>
+        <?php endif; ?>
         <table class="table table-bordered">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Id</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Email</th>
                     <th scope="col">Data de Nascimento</th>
@@ -27,17 +33,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>##</td>
-                    <td>
-                        <a href="edit.php" class="btn btn-primary">Editar</a>
-                        <a href="delete.php" class="btn btn-danger">Excluir</a>
-                    </td>
-                </tr>
+                <?php foreach ($users as $user) : ?>
+                    <tr>
+                        <td><?= $user->name ?></td>
+                        <td><?= $user->email ?></td>
+                        <td>
+                            <?= date("d/m/Y", strtotime($user->dt_birth)); ?>
+                        </td>
+                        <td><img src="images/<?= $user->image_url ?>" class="d-block m-auto" width="50" height="50"></td>
+                        <td>
+                            <a href="edit.php?id=<?= $user->_id ?>" class="btn btn-primary">Editar</a>
+                            <a href="delete.php" class="btn btn-danger">Excluir</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
